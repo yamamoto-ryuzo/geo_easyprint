@@ -19,6 +19,7 @@ from qgis.core import (
     QgsLayoutPoint,
     QgsLayoutSize,
     QgsUnitTypes,
+    QgsScaleBarSettings,
 )
 
 from . import utils
@@ -810,7 +811,7 @@ class CreateSimpleMap:
 
         # Sizeを固定にし、値のみを変化させる
         scaleBar.setMaximumBarWidth(offset_x - self.margin_left)
-        scaleBar.setSegmentSizeMode(1)
+        scaleBar.setSegmentSizeMode(QgsScaleBarSettings.SegmentSizeMode.FitWidth)
         scaleBar.setId("スケールバー")
         scaleBar.update()
 
