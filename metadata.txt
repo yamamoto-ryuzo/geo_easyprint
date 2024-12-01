@@ -1,12 +1,12 @@
 [general]
 name=geo_easyprint
-qgisMinimumVersion=3.00
+qgisMinimumVersion=3.0
 qgisMaximumVersion=3.99
-description=Simplified printing
-about=Simplified printing plug-ins due to the complexity of the default printing operations
+description=簡易印刷プラグイン
+about=デフォルトの印刷操作の複雑さを解消するための簡易印刷プラグインです。
 version=2.0.1
-author=geosol & yamamotoryuzo
-email=ryu@yamakun.net
+author=geosol, yamamotoryuzo
+email=ryu@yamamoto.net
 tracker=https://github.com/yamamoto-ryuzo/geo_easyprint
 repository=https://github.com/yamamoto-ryuzo/geo_easyprint
 homepage=https://github.com/yamamoto-ryuzo/geo_easyprint
