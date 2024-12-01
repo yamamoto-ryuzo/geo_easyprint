@@ -1,14 +1,37 @@
+# This file contains metadata for your plugin.
+
+# This file should be included when you package your plugin.# Mandatory items:
+
 [general]
 name=geo_easyprint
 qgisMinimumVersion=3.0
-qgisMaximumVersion=3.99
 description=簡易印刷プラグイン
-about=デフォルトの印刷操作の複雑さを解消するための簡易印刷プラグインです。
 version=2.0.1
 author=geosol, yamamotoryuzo
 email=ryu@yamamoto.net
-tracker=https://github.com/yamamoto-ryuzo/geo_easyprint
+
+about=デフォルトの印刷操作の複雑さを解消するための簡易印刷プラグインです。
+
+tracker=https://github.com/yamamoto-ryuzo/geo_easyprint/issues
 repository=https://github.com/yamamoto-ryuzo/geo_easyprint
 homepage=https://github.com/yamamoto-ryuzo/geo_easyprint
-icon=easyprint.png
+
+hasProcessingProvider=False
+tags=python, printing, layout
 category=Plugins
+icon=easyprint.png
+
+experimental=False
+deprecated=False
+server=False
+
+# Optional items:
+
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+# tags=
+
+# If the plugin can run on QGIS Server.
+# server=False
