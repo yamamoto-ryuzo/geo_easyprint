@@ -11,5 +11,4 @@ tracker=https://github.com/yamamoto-ryuzo/easyprint-feature-qgis3
 repository=https://github.com/yamamoto-ryuzo/easyprint-feature-qgis3
 homepage=https://github.com/yamamoto-ryuzo/easyprint-feature-qgis3
 icon=easyprint.png
-experimental=True
 category=Plugins
