@@ -6,7 +6,7 @@
 name=geo_easyprint
 qgisMinimumVersion=3.0
 description=簡易印刷プラグイン
-version=2.1.0
+version=3.0.0
 author=geosol, yamamotoryuzo
 email=ryu@yamamoto.net
 
