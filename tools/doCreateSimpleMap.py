@@ -821,7 +821,7 @@ class CreateSimpleMap:
         print(f"QGISのバージョン: {qgis_version}")
         if qgis_version >= 34000:  # QGIS 3.4以降
             # QGIS 3.4以降の処理
-            scaleBar.setSegmentSizeMode(QgsScaleBarSettings.SegmentSizeMode.FitWidth)
+            scaleBar.setSegmentSizeMode(QgsScaleBarSettings.SegmentSizeFixed)
         else:
             # QGIS 3.4より前の処理
             scaleBar.setSegmentSizeMode(1)
