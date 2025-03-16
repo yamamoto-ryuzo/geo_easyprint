@@ -2,7 +2,7 @@
 
 
 def name():
-    return u"EasyPrint"
+    return u"geo_easyprint"
 
 
 def description():
