@@ -2,7 +2,7 @@
 
 
 def name():
-    return u"(GEO)EasyPrint"
+    return u"EasyPrint"
 
 
 def description():
@@ -10,11 +10,11 @@ def description():
 
 
 def version():
-    return "Version 1.10"
+    return "Version 3.0.0"
 
 
 def qgisMinimumVersion():
-    return "1.7"
+    return "3.0"
 
 
 def icon():
