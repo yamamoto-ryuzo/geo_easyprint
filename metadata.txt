@@ -4,9 +4,10 @@
 
 [general]
 name=geo_easyprint
-qgisMinimumVersion=3.0
+version=3.0.0  # ここでバージョンを指定
+qgisMinimumVersion=3.00 # 互換性のあるQGISの最小バージョン
+qgisMaximumVersion=3.99 # 互換性のあるQGISの最大バージョン
 description=簡易印刷プラグイン
-version=3.0.0
 author=geosol, yamamotoryuzo
 email=ryu@yamamoto.net
 
