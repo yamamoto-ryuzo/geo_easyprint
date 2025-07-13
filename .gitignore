@@ -5,3 +5,7 @@ __pycache__/
 CVS/
 *~
 .venv
+
+# ZIP files
+*.zip
+geo_easyprint_*.zip
