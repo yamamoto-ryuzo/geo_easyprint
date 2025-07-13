@@ -113,7 +113,7 @@ class EasyPrint:
 
         # Connect to the signals.
         self.dlg.okClickedSimpleMap.connect(self.doSimpleMap)
-        self.dlg.exec_()
+        self.dlg.show()  # モードレス表示に変更
 
     def doSimpleMap(
         self,
