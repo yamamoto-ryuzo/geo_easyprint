@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+<<<<<<< HEAD
 """
 EasyPrint UI - PyQt5対応版
 """
@@ -10,6 +11,16 @@ from qgis.PyQt import QtCore, QtGui, QtWidgets
 def tr(text):
     """翻訳用の関数"""
     return QtCore.QCoreApplication.translate("EasyPrint", text)
+=======
+# Form implementation generated from reading ui file 'Ui_easyprint.ui'
+#
+# Created: Fri Oct  7 17:45:37 2011
+#      by: PyQt5 UI code generator (自動変換)
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui
+>>>>>>> 8ee588e (不要なUI整理・EasyPrint本体のみ残し、各種修正)
 
 
 class Ui_EasyPrint(object):
