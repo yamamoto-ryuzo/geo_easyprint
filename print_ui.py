@@ -1,28 +1,14 @@
 # -*- coding: utf-8 -*-
 
-<<<<<<< HEAD
 """
 Print UI - PyQt5対応版
 """
 
 from qgis.PyQt import QtCore, QtGui, QtWidgets
-=======
-# Form implementation generated from reading ui file 'print_ui.ui'
-#
-# Created: Tue Feb 09 16:35:10 2016
-#      by: PyQt5 UI code generator (自動変換)
-#
-# WARNING! All changes made in this file will be lost!
 
-from PyQt5 import QtCore, QtGui
-
-try:
-    _fromUtf8 = QtCore.QString.fromUtf8
-except AttributeError:
-
-    def _fromUtf8(s):
-        return s
->>>>>>> 8ee588e (不要なUI整理・EasyPrint本体のみ残し、各種修正)
+def tr(text):
+    """翻訳用の関数"""
+    return QtCore.QCoreApplication.translate("EasyPrint", text)
 
 
 def tr(text):
