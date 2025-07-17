@@ -59,7 +59,10 @@ def create_plugin_zip():
         "README.md",
         "easyprint.png",
         "easyprint.pro",
-        "changelog.md"
+        "changelog.md",
+        "i18n_helper.py",
+        "compile_translations.py",
+        "compile_translations.bat"
     ]
     
     # Directories to include
@@ -70,7 +73,8 @@ def create_plugin_zip():
         "preferences",
         "styles",
         "tools",
-        "data"
+        "data",
+        "i18n"
     ]
     
     print(f"Creating plugin ZIP package: {ZIP_NAME}")

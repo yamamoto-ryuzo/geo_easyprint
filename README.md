@@ -1,11 +1,61 @@
-# プラグイン名
+# プラグイン名 / Plugin Name
 
 EasyPrint
 
-## プラグイン説明
+## プラグイン説明 / Plugin Description
 
-デフォルトの印刷の操作が複雑なので、簡略化させた印刷プラグイン
+デフォルトの印刷の操作が複雑なので、簡略化させた印刷プラグイン  
 とりあえず、誰もメンテされなくなったプラグインを最新の環境でも動くように改修中
+
+This is a simplified printing plugin to reduce the complexity of default printing operations.  
+Currently working on updating an unmaintained plugin to work with the latest environment.
+
+## 国際化対応 / Internationalization
+
+このプラグインは日本語と英語に対応しています。  
+This plugin supports both Japanese and English.
+
+- **デフォルト言語 / Default language**: 日本語 / Japanese
+- **サポート言語 / Supported languages**: 日本語、英語 / Japanese, English
+
+### 自動言語切り替え / Automatic Language Switching
+
+プラグインは以下の優先順位で言語を自動選択します：  
+The plugin automatically selects language in the following priority:
+
+1. **QGIS設定のオーバーライドロケール** / QGIS override locale setting
+2. **QGISアプリケーションの現在のロケール** / Current QGIS application locale
+3. **QGISのグローバル設定** / QGIS global settings
+4. **システムのロケール** / System locale
+5. **環境変数** (`LANG`, `LANGUAGE`) / Environment variables
+
+### 言語変更方法 / How to Change Language
+
+QGISの設定から言語を変更できます：  
+You can change the language from QGIS settings:
+
+1. **QGIS** → **設定** → **オプション** → **一般** → **ロケール**
+2. **QGIS** → **Settings** → **Options** → **General** → **Locale**
+
+言語を変更後、QGISを再起動してください。  
+Please restart QGIS after changing the language.
+
+### 翻訳ファイルのコンパイル / Compiling Translation Files
+
+翻訳ファイルをコンパイルするには、以下のコマンドを実行してください：  
+To compile translation files, run the following commands:
+
+```bash
+# Windows
+compile_translations.bat
+
+# Python script
+python compile_translations.py
+
+# Manual compilation
+lrelease i18n/easyprint_ja.ts -qm i18n/easyprint_ja.qm
+lrelease i18n/easyprint_en.ts -qm i18n/easyprint_en.qm
+```
 
 ## 設定
 
@@ -30,12 +80,12 @@ EasyPrint
 
 ## 使い方
 
-## フォルダ構成
+## フォルダ構成 / Folder Structure
 
 ```
 ./
 ├─data
-├─i18n
+├─i18n            # 国際化対応ファイル / Internationalization files
 ├─images
 ├─layouts
 ├─pictures
@@ -46,7 +96,18 @@ EasyPrint
 
 ### data
 
-図郭ファイルなどプラグインが使用するデータが格納されている。
+図郭ファイルなどプラグインが使用するデータが格納されている。  
+Contains data used by the plugin, such as map frame files.
+
+### i18n
+
+国際化対応のための翻訳ファイルが格納されている。  
+Contains translation files for internationalization.
+
+- `easyprint_ja.ts` - 日本語翻訳ファイル / Japanese translation file
+- `easyprint_en.ts` - 英語翻訳ファイル / English translation file
+- `easyprint_ja.qm` - コンパイル済み日本語ファイル / Compiled Japanese file
+- `easyprint_en.qm` - コンパイル済み英語ファイル / Compiled English file
 
 ### i18n
 

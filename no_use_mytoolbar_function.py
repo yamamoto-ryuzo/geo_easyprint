@@ -1,3 +1,9 @@
+from qgis.PyQt.QtCore import QCoreApplication
+
+def tr(text):
+    """翻訳用の関数"""
+    return QCoreApplication.translate("EasyPrint", text)
+
     def setFontColor_2(self):
         # ラベルの追加時に使用している関数？
         try:
@@ -11,7 +17,7 @@
                 self.pluginGui2.label_4.setPalette(palette)
         except:
             QMessageBox.information(self.composerView.composerWindow(),
-                                    u"簡易印刷", traceback.format_exc())
+                                    tr("EasyPrint"), traceback.format_exc())
 
     def set_framecolor_label(self):
         # ラベルのフレーム色設定
@@ -25,7 +31,7 @@
                 self.newLabelPen = pen
         except:
             QMessageBox.information(self.composerView.composerWindow(),
-                                    u"簡易印刷", traceback.format_exc())
+                                    tr("EasyPrint"), traceback.format_exc())
 
     def change_backcolor_label(self):
         # ラベルの背景色の変更
@@ -39,7 +45,7 @@
                 self.newLabelBrush = brush
         except:
             QMessageBox.information(self.composerView.composerWindow(),
-                                    u"簡易印刷", traceback.format_exc())
+                                    tr("EasyPrint"), traceback.format_exc())
 
     def chkStateChanged_3(self, check_state):
         try:

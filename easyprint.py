@@ -32,7 +32,7 @@
 
 from pathlib import Path
 
-from qgis.PyQt.QtCore import QSettings
+from qgis.PyQt.QtCore import QSettings, QCoreApplication
 from qgis.PyQt.QtGui import QIcon
 from qgis.PyQt.QtWidgets import QAction, QMessageBox
 from qgis.PyQt import QtXml
@@ -43,9 +43,15 @@ from qgis.gui import QgsLayoutView
 from .tools import utils
 from . import resources
 from .easyprintgui import EasyPrintGui
+from .i18n_helper import I18nHelper
 
 from .layout import Layout
 from .decoration import Decoration
+
+
+def tr(text):
+    """翻訳用の関数"""
+    return QCoreApplication.translate("EasyPrint", text)
 
 
 class EasyPrint:
@@ -61,16 +67,26 @@ class EasyPrint:
         self.remove_composer = None
 
         self.plugin_dir = Path(__file__).parent
+        
+        # 国際化の設定
+        self.i18n_helper = I18nHelper()
+        translation_success = self.i18n_helper.setup_translation(str(self.plugin_dir))
+        
+        # デバッグ情報をコンソールに出力
+        if translation_success:
+            print(f"EasyPrint: Translation loaded for locale: {self.i18n_helper.get_current_locale()}")
+        else:
+            print(f"EasyPrint: Using default Japanese locale")
 
     def initGui(self):
         # Create action that will start plugin configuration.
         icon_path = self.plugin_dir / "images" / "mActionFilePrint.png"
-        self.action = QAction(QIcon(str(icon_path)), "簡易印刷", self.iface.mainWindow())
+        self.action = QAction(QIcon(str(icon_path)), tr("EasyPrint"), self.iface.mainWindow())
         self.action.triggered.connect(self.run)
 
         # Add toolbar button and menu item.
         self.iface.addToolBarIcon(self.action)
-        self.iface.addPluginToMenu("&EasyPrint", self.action)
+        self.iface.addPluginToMenu(tr("&EasyPrint"), self.action)
         project = QgsProject.instance()
         manager = project.layoutManager()
         # project.layoutAdded.connect(self.add_toolbar)
@@ -79,12 +95,15 @@ class EasyPrint:
 
     def unload(self):
         # Remove the plugin menu item and icon.
-        self.iface.removePluginMenu("&EasyPrint", self.action)
+        self.iface.removePluginMenu(tr("&EasyPrint"), self.action)
         self.iface.removeToolBarIcon(self.action)
         project = QgsProject.instance()
         manager = project.layoutManager()
         manager.layoutAdded.disconnect(self.set_composers)
         # project.layoutAdded.disconnect(self.add_toolbar)
+
+        # 国際化のクリーンアップ
+        self.i18n_helper.cleanup()
 
         if self.dlg:
             self.dlg.close()
@@ -96,7 +115,7 @@ class EasyPrint:
         if canvas_scale == 0:
             canvas_scale = 1
         scales.insert(0, str(canvas_scale))
-        scales.insert(1, "ユーザー定義")
+        scales.insert(1, tr("User defined"))
         paperformats = self.preferences("format", True)
 
         maplayers = utils.getLayerNames("all")
@@ -171,7 +190,7 @@ class EasyPrint:
         """
         window = view.composerWindow()
         reply = QMessageBox.question(
-            window, "保存しますか？", "印刷(コンポーザー)の設定を保存しますか？", QMessageBox.Yes, QMessageBox.No,
+            window, tr("Do you want to save?"), tr("Do you want to save the print (composer) settings?"), QMessageBox.Yes, QMessageBox.No,
         )
         if reply != QMessageBox.Yes:
             # QGIS起動時は問題がないが、終了時にエラーを吐く
